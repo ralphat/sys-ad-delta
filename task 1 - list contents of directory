@@ -1,0 +1,20 @@
+import os
+i = 1
+f = raw_input("Enter directory \n")
+print os.path.basename(f), "/"
+def pd(dirc):
+    global i
+
+    for (path, dirs, files) in os.walk(dirc):
+       
+        for d in dirs:
+            print '....' * i, d, "/"
+            i = i + 1
+            pd(os.path.join(path, d))
+        
+        for fl in files:
+            print "...." * i, fl
+        i = i - 1
+        break
+pd(f) 
+
