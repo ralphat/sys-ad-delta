@@ -1,5 +1,6 @@
 #!/bin/bash
 
-FILE=/home/rt/Desktop/text;
-
-sed -i '/[^[:alnum:][:space:]]/d' $FILE
+FILE=/home/rt/Desktop/spline.txt;
+Output=/home/rt/Desktop/text
+grep -v '^[^a-zA-Z0-9\ ]' $FILE > $Output
+grep -v '[^a-zA-Z0-9\ ]' $Output > $FILE
