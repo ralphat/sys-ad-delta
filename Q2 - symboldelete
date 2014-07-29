@@ -1,0 +1,5 @@
+#!/bin/bash
+
+FILE=/home/rt/Desktop/text;
+
+sed -i '/[^[:alnum:][:space:]]/d' $FILE
