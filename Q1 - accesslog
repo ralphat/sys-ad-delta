@@ -1,0 +1,20 @@
+#!/bin/bash
+
+declare -i max=0
+declare -a array
+declare -a list
+
+echo "The unique ip addresses are :"
+FILE=/home/rt/Desktop/apaclog
+ for ip in `cat $FILE |cut -d ' ' -f 1 |sort |uniq`;
+ do { COUNT=`grep ^$ip $FILE |wc -l`;
+ array+=$COUNT
+ if [[ "$COUNT" -gt "0" ]]; then echo "$COUNT:   $ip";
+ fi 
+ }; done
+ 
+ 
+ echo "The no. of unique ip addreses are :"
+ echo ${#array}
+ echo "Most visited :"
+cat $FILE | awk '{ print $7 }' | sort | uniq -c | sort -r | head -1
